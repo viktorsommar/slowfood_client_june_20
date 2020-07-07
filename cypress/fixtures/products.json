@@ -1,0 +1,22 @@
+{
+  "products": [
+      {
+          "id": 1,
+          "name": "Pizza",
+          "description": "This is a cheesy pizza",
+          "price": 70
+      },
+      {
+          "id": 1,
+          "name": "Falafel",
+          "description": "Veggie food is good for you and the planet",
+          "price": 100
+      },
+      {
+          "id": 1,
+          "name": "Noodles",
+          "description": "You thought it would come with something else but it doesnt",
+          "price": 50
+      }
+  ]
+}
