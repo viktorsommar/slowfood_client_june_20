@@ -17,7 +17,7 @@ class Menu extends Component {
       (menuList = this.state.menu.map((product) => {
         return (
           <div id={`product-${product.id}`}>
-            <h3>{product.name}</h3>
+            <h2>{product.name}</h2>
             <p>{product.description}</p>
           </div>
         );
