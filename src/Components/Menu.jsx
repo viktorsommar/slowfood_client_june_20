@@ -8,7 +8,6 @@ class Menu extends Component {
 
   componentDidMount = async () => {
     let menuData = await axios.get("/products");
-
     this.setState({ menu: menuData.data.products });
   };
 
