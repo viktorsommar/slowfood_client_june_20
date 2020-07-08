@@ -2,23 +2,32 @@
   "products": [
       {
           "id": 1,
-          "category": "Starter",
+          "category": "Starters",
           "name": "Pizza",
           "description": "This is a cheesy pizza",
           "price": 70
       },
       {
           "id": 2,
-          
+          "category": "Main Courses",
           "name": "Falafel",
           "description": "Veggie food is good for you and the planet",
           "price": 100
       },
       {
           "id": 3,
+          "category": "Deserts",
           "name": "Noodles",
           "description": "You thought it would come with something else but it doesnt",
           "price": 50
-      }
+      },
+      {
+        "id": 4,
+        "category": "Starters",
+        "name": "Frogs legs",
+        "description": "Slimey",
+        "price": 50
+    }
+
   ]
 }

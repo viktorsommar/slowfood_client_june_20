@@ -15,12 +15,30 @@ class Menu extends Component {
     let menuList;
     this.state.menu &&
       (menuList = this.state.menu.map((product) => {
+        if (product.category === "Starters")
         return (
           <div id={`product-${product.id}`}>
+            <h3>Starters</h3>
             <h2>{product.name}</h2>
             <p>{product.description}</p>
           </div>
-        );
+          );
+          if (product.category === "Main Courses")
+          return(
+            <div id={`product-${product.id}`}>
+              <h3>Main Courses</h3>
+            <h2>{product.name}</h2>
+            <p>{product.description}</p>
+          </div>
+          );
+          if (product.category === "Deserts")
+          return(
+            <div id={`product-${product.id}`}>
+              <h3>Deserts</h3>
+            <h2>{product.name}</h2>
+            <p>{product.description}</p>
+          </div>
+          );
       }));
     return <div>{menuList}</div>;
   }
