@@ -17,5 +17,9 @@ describe("Visitor can see items on menu", () => {
       cy.get("h3").should("contain", "Falafel");
       cy.get("p").should("contain", "Veggie food is good for you and the planet");
     });
+    cy.get("#product-3").within(() => {
+      cy.get("h3").should("contain", "Noodles");
+      cy.get("p").should("contain", "You thought it would come with something else but it doesnt");
+    });
   });
 });   
