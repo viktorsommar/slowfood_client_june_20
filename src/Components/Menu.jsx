@@ -9,49 +9,61 @@ class Menu extends Component {
     this.setState({ menu: menuData.data.products });
   };
   render() {
-    let starters = []
-    let mainCourses = []
-    let deserts = []
+    let starters = [];
+    let maincourses = [];
+    let desserts = [];
+    let drinks = [];
     this.state.menu &&
-      (this.state.menu.forEach((product) => {
-        if (product.category === "Starters")
+      this.state.menu.forEach((product) => {
+        if (product.category === "starters")
           starters.push(
             <div id={`product-${product.id}`}>
               <h2>{product.name}</h2>
               <p>{product.description}</p>
             </div>
           );
-        if (product.category === "Main Courses")
-          mainCourses.push(
+        if (product.category === "maincourses")
+          maincourses.push(
             <div id={`product-${product.id}`}>
               <h2>{product.name}</h2>
               <p>{product.description}</p>
             </div>
           );
-        if (product.category === "Deserts")
-          deserts.push(
+        if (product.category === "desserts")
+          desserts.push(
             <div id={`product-${product.id}`}>
               <h2>{product.name}</h2>
               <p>{product.description}</p>
             </div>
           );
-      }));
+        if (product.category === "drinks")
+          drinks.push(
+            <div id={`product-${product.id}`}>
+              <h2>{product.name}</h2>
+              <p>{product.description}</p>
+            </div>
+          );
+      });
     return (
       <div>
         <div id="starters">
           <h3>Starters</h3>
           {starters}
         </div>
-        <div id="main-courses">
-          <h3>Main Courses</h3>
-          {mainCourses}
+        <div id="maincourses">
+          <h3>Maincourses</h3>
+          {maincourses}
         </div>
-        <div id="deserts">
-          <h3>Deserts</h3>
-          {deserts}
+        <div id="desserts">
+          <h3>Desserts</h3>
+          {desserts}
+        </div>
+        <div id="drinks">
+          <h3>Drinks</h3>
+          {drinks}
         </div>
       </div>
-    )
+    );
   }
 }
 export default Menu;
