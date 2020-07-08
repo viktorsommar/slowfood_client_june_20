@@ -2,12 +2,14 @@
   "products": [
       {
           "id": 1,
+          "category": "Starter",
           "name": "Pizza",
           "description": "This is a cheesy pizza",
           "price": 70
       },
       {
           "id": 2,
+          
           "name": "Falafel",
           "description": "Veggie food is good for you and the planet",
           "price": 100
