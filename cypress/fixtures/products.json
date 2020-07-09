@@ -12,7 +12,7 @@
       "name": "Falafel",
       "description": "Veggie food is good for you and the planet",
       "price": 100,
-      "category": "maincourses"
+      "category": "main_courses"
     },
     {
       "id": 3,

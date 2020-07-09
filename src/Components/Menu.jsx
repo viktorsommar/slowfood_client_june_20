@@ -22,7 +22,7 @@ class Menu extends Component {
               <p>{product.description}</p>
             </div>
           );
-        if (product.category === "maincourses")
+        if (product.category === "main_courses")
           maincourses.push(
             <div id={`product-${product.id}`}>
               <h2>{product.name}</h2>
@@ -50,7 +50,7 @@ class Menu extends Component {
           <h3>Starters</h3>
           {starters}
         </div>
-        <div id="maincourses">
+        <div id="main_courses">
           <h3>Maincourses</h3>
           {maincourses}
         </div>
