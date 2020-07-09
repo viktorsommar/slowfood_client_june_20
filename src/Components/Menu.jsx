@@ -31,8 +31,6 @@ class Menu extends Component {
               {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
                 Add to order
                 </button>}
-
-
             </div>
           );
         if (product.category === "desserts")
@@ -44,7 +42,7 @@ class Menu extends Component {
               </button>}
             </div>
           );
-      
+
         if (product.category === "drinks")
           drinks.push(
             <div key={product.id} id={`product-${product.id}`}>

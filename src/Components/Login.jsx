@@ -14,12 +14,12 @@ class Login extends Component {
       let response = await axios.post("/auth", {
         email: event.target.email.value,
         password: event.target.password.value
-        
+
       })
 
       await storeAuthCredentials(response)
       this.props.setAuthenticated()
-    } catch(error) {
+    } catch (error) {
       console.log(error)
     }
   }
@@ -31,8 +31,8 @@ class Login extends Component {
     this.state.renderForm ? (
       form = <LoginForm authenticate={this.authenticate} />
     ) : (
-      button = <button id="login" onClick={() => this.setState({renderForm: true})}>Login</button>
-    )
+        button = <button id="login" onClick={() => this.setState({ renderForm: true })}>Login</button>
+      )
 
     return (
       <div>
