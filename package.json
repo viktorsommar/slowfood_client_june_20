@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.4.0"
@@ -15,7 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cy:open": "BROWSER=none yarn start & cypress open"
+    "cy:open": "cypress open & yarn start --silent",
+    "cy:run": "BROWSER=none yarn start & cypress run"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,7 +35,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^4.0.2",
+    "cypress": "^4.10.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "react-test-renderer": "^16.12.0"
