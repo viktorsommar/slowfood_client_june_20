@@ -11,9 +11,10 @@ class Login extends Component {
   authenticate = async (event) => {
     event.preventDefault()
     try {
-      let response = await axios.post("/auth/sign_in", {
+      let response = await axios.post("/auth", {
         email: event.target.email.value,
         password: event.target.password.value
+        
       })
 
       await storeAuthCredentials(response)

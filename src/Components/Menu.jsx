@@ -19,18 +19,18 @@ class Menu extends Component {
           starters.push(
             <div key={product.id} id={`product-${product.id}`}>
               {`${product.name} ${product.description} ${product.price}`}
-              <button id="button" onClick={this.addToOrder}>
+              {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
                 Add to order
-              </button>
+              </button>}
             </div>
           );
         if (product.category === "main_courses")
           maincourses.push(
             <div key={product.id} id={`product-${product.id}`}>
               {`${product.name} ${product.description} ${product.price}`}
-                <button id="button" onClick={this.addToOrder}>
-                  Add to order
-                </button>
+              {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
+                Add to order
+                </button>}
 
 
             </div>
@@ -44,14 +44,14 @@ class Menu extends Component {
               </button>}
             </div>
           );
-          debugger
+      
         if (product.category === "drinks")
           drinks.push(
             <div key={product.id} id={`product-${product.id}`}>
               {`${product.name} ${product.description} ${product.price}`}
-              <button id="button" onClick={this.addToOrder}>
+              {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
                 Add to order
-              </button>
+              </button>}
             </div>
           );
       });
