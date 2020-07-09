@@ -1,24 +1,39 @@
 {
   "products": [
-      {
-          "id": 1,
-          "category": "Starter",
-          "name": "Pizza",
-          "description": "This is a cheesy pizza",
-          "price": 70
-      },
-      {
-          "id": 2,
-          
-          "name": "Falafel",
-          "description": "Veggie food is good for you and the planet",
-          "price": 100
-      },
-      {
-          "id": 3,
-          "name": "Noodles",
-          "description": "You thought it would come with something else but it doesnt",
-          "price": 50
-      }
+    {
+      "id": 1,
+      "name": "Pizza",
+      "description": "This is a cheesy pizza",
+      "price": 70,
+      "category": "starters"
+    },
+    {
+      "id": 2,
+      "name": "Falafel",
+      "description": "Veggie food is good for you and the planet",
+      "price": 100,
+      "category": "main_courses"
+    },
+    {
+      "id": 3,
+      "name": "Noodles",
+      "description": "You thought it would come with something else but it doesnt",
+      "price": 50,
+      "category": "desserts"
+    },
+    {
+      "id": 4,
+      "name": "Frogs legs",
+      "description": "Slimey",
+      "price": 50,
+      "category": "starters"
+    },
+    {
+      "id": 5,
+      "name": "Orange juice",
+      "description": "Freshy",
+      "price": 20,
+      "category": "drinks"
+    }
   ]
 }
