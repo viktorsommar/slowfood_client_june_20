@@ -4,7 +4,7 @@ describe("User can add a product to their order", () => {
     cy.route({
       method: "GET",
       url: "http://localhost:3000/api/v1/products",
-      response: "fixture:product_data.json"
+      response: "fixture:products.json"
     })
 
     cy.route({
