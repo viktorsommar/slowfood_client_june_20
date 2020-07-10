@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+
+
 class Menu extends Component {
   state = {
     menu: [],
@@ -8,12 +10,12 @@ class Menu extends Component {
     orderId: null
   };
   componentDidMount = async () => {
+    
     let menuData = await axios.get("/products");
     this.setState({ menu: menuData.data.products });
   };
 
   addToOrder = async (event) => {
-  
     let productId = event.target.parentElement.dataset.id
     let credentials = await JSON.parse(sessionStorage.getItem("credentials"))
     let headers = {
@@ -124,6 +126,10 @@ class Menu extends Component {
             </div>
           );
       });
+    
+    
+   
+    
     return (
       <div>
         <div id="starters">
