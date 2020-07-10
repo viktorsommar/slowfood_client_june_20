@@ -1,5 +1,3 @@
-import LoginForm from "../../src/Components/LoginForm"
-
 describe("User can add a product to their order", () => {
   before(() => {
     cy.server()
