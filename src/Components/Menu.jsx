@@ -12,8 +12,8 @@ class Menu extends Component {
   };
 
   addToOrder = async (event) => {
-    let productId = event.target.parentElement.dataset.id
 
+    let productId = event.target.parentElement.dataset.id
     let credentials = await JSON.parse(sessionStorage.getItem("credentials"))
     let headers = {
       ...credentials,
@@ -45,25 +45,6 @@ class Menu extends Component {
     })
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   render() {
     let starters = [];
     let maincourses = [];
@@ -73,7 +54,12 @@ class Menu extends Component {
       this.state.menu.forEach((product) => {
         if (product.category === "starters")
           starters.push(
-            <div key={product.id} id={`product-${product.id}`}>
+            <div 
+            key={product.id} 
+            id={`product-${product.id}`}
+            data-id={product.id}
+            data-price={product.price}
+            >
               {`${product.name} ${product.description} ${product.price}`}
               {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
                 Add to order
@@ -86,7 +72,12 @@ class Menu extends Component {
           );
         if (product.category === "main_courses")
           maincourses.push(
-            <div key={product.id} id={`product-${product.id}`}>
+            <div 
+            key={product.id} 
+            id={`product-${product.id}`}
+            data-id={product.id}
+            data-price={product.price}
+            >
               {`${product.name} ${product.description} ${product.price}`}
               {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
                 Add to order
@@ -95,7 +86,12 @@ class Menu extends Component {
           );
         if (product.category === "desserts")
           desserts.push(
-            <div key={product.id} id={`product-${product.id}`}>
+            <div 
+            key={product.id} 
+            id={`product-${product.id}`}
+            data-id={product.id}
+            data-price={product.price}
+            >
               {`${product.name} ${product.description} ${product.price}`}
               {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
                 Add to order
@@ -105,7 +101,12 @@ class Menu extends Component {
 
         if (product.category === "drinks")
           drinks.push(
-            <div key={product.id} id={`product-${product.id}`}>
+            <div 
+            key={product.id} 
+            id={`product-${product.id}`}
+            data-id={product.id}
+            data-price={product.price}
+            >
               {`${product.name} ${product.description} ${product.price}`}
               {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
                 Add to order

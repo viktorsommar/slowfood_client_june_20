@@ -34,7 +34,7 @@ describe('User can add a product to his/her order', () => {
       method: "PUT",
       url: "http://localhost:3000/api/orders/1",
       response: {
-        message: "The product has been added to order",
+        message: "The product has been added to your order",
         order_id: 1,
       },
     });
