@@ -28,15 +28,24 @@ describe('User can add a product to his/her order', () => {
       method: "POST",
       url: "http://localhost:3000/api/v1/orders",
       response: "fixture:order_post_response",
+      response: {
+        message: "A product has been added to your order",
+        order: {
+          id: 1,
+        }
+      },
+
+
     });
 
     cy.route({
       method: "PUT",
       url: "http://localhost:3000/api/orders/1",
       response: {
-        message: "The product has been added to your order",
-        order_id: 1,
-      },
+        message: "Another product has been added to your order",
+        order: {
+          id:1,
+        }
     });
   });
 
@@ -44,16 +53,16 @@ describe('User can add a product to his/her order', () => {
     cy.get("#product-1").within(() => {
       cy.get("button").contains("Add to order").click();
       cy.get("#order-message").should("contain",
-        "The product has been added to your order"
-      );
+        "A product has been added to your order"
     });
-    cy.get("product-3").within(() => {
+    
+    cy.get("#product-3").within(() => {
       cy.get("button").contains("Add to order").click();
-      cy.get('.message').should(
+      cy.get("#order-message").should(
         "contain",
-        "The product has been added to your order"
+        "Another product has been added to your order"
       );
-    });
+
 
   });
 

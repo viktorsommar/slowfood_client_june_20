@@ -1,5 +1,5 @@
 {
-  "message": "The product has been added to your order",
+  "message": "A product has been added to your order",
   "order":{
     "id": 1,
     "total" : 70,

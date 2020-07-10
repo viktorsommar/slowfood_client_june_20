@@ -4,7 +4,8 @@ class Menu extends Component {
   state = {
     menu: [],
     orderMessage: {},
-    orderDetails: {}
+    orderDetails: {},
+    orderId: null
   };
   componentDidMount = async () => {
     let menuData = await axios.get("/products");
@@ -12,7 +13,7 @@ class Menu extends Component {
   };
 
   addToOrder = async (event) => {
-
+  
     let productId = event.target.parentElement.dataset.id
     let credentials = await JSON.parse(sessionStorage.getItem("credentials"))
     let headers = {
@@ -82,6 +83,9 @@ class Menu extends Component {
               {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
                 Add to order
                 </button>}
+                {parseInt(this.state.orderMessage.id) === product.id && 
+              <p id="order-message">{this.state.orderMessage.message}</p>
+            }
             </div>
           );
         if (product.category === "desserts")
@@ -96,6 +100,9 @@ class Menu extends Component {
               {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
                 Add to order
               </button>}
+              {parseInt(this.state.orderMessage.id) === product.id && 
+              <p id="order-message">{this.state.orderMessage.message}</p>
+            }
             </div>
           );
 
@@ -111,6 +118,9 @@ class Menu extends Component {
               {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
                 Add to order
               </button>}
+              {parseInt(this.state.orderMessage.id) === product.id && 
+              <p id="order-message">{this.state.orderMessage.message}</p>
+            }
             </div>
           );
       });
