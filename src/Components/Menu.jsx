@@ -17,30 +17,39 @@ class Menu extends Component {
       this.state.menu.forEach((product) => {
         if (product.category === "starters")
           starters.push(
-            <div id={`product-${product.id}`}>
-              <h2>{product.name}</h2>
-              <p>{product.description}</p>
+            <div key={product.id} id={`product-${product.id}`}>
+              {`${product.name} ${product.description} ${product.price}`}
+              {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
+                Add to order
+              </button>}
             </div>
           );
         if (product.category === "main_courses")
           maincourses.push(
-            <div id={`product-${product.id}`}>
-              <h2>{product.name}</h2>
-              <p>{product.description}</p>
+            <div key={product.id} id={`product-${product.id}`}>
+              {`${product.name} ${product.description} ${product.price}`}
+              {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
+                Add to order
+                </button>}
             </div>
           );
         if (product.category === "desserts")
           desserts.push(
-            <div id={`product-${product.id}`}>
-              <h2>{product.name}</h2>
-              <p>{product.description}</p>
+            <div key={product.id} id={`product-${product.id}`}>
+              {`${product.name} ${product.description} ${product.price}`}
+              {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
+                Add to order
+              </button>}
             </div>
           );
+
         if (product.category === "drinks")
           drinks.push(
-            <div id={`product-${product.id}`}>
-              <h2>{product.name}</h2>
-              <p>{product.description}</p>
+            <div key={product.id} id={`product-${product.id}`}>
+              {`${product.name} ${product.description} ${product.price}`}
+              {this.props.authenticated && <button id="button" onClick={this.addToOrder}>
+                Add to order
+              </button>}
             </div>
           );
       });

@@ -1,0 +1,1 @@
+<a href='https://semaphoreci.com/emtalen/slowfood_client_june_20'> <img src='https://semaphoreci.com/api/v1/emtalen/slowfood_client_june_20/branches/pull-request-6/badge.svg' alt='Build Status'></a>
