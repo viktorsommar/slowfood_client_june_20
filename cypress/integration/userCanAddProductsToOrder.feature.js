@@ -32,7 +32,7 @@ describe('User can add a product to his/her order', () => {
 
     cy.route({
       method: "PUT",
-      url: "http://localhost:3000/api/v1/orders",
+      url: "http://localhost:3000/api/v1/orders/1",
       response: "fixture:order_put_response",
     });
   });
@@ -44,7 +44,6 @@ describe('User can add a product to his/her order', () => {
         "A product has been added to your order"
       );
     });
-
     
 
     cy.get("#product-2").within(() => {
