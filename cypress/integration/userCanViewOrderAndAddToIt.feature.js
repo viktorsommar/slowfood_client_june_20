@@ -38,43 +38,27 @@ describe('User can add a product to his/her order', () => {
   });
 
   it("user can add multiple products to order and view its content", () => {
-    cy.get("button")
-      .contains("View order")
-      .should("not.exist")
+    cy.get("button").contains("View order").should("not.exist")
 
     cy.get("#product-2").within(() => {
-      cy.get("button")
-        .contains("Add to order")
-        .click()
-      cy.get("#order-message").should(
-        "contain",
-        "A product has been added to your order"
-      )
+      cy.get("button").contains("Add to order").click()
+      cy.get("#order-message").should("contain","A product has been added to your order")
     })
 
-    cy.get("button")
-      .contains("View order")
-      .should("exist")
+    cy.get("button").contains("View order").should("exist")
 
     cy.get("#product-3").within(() => {
-      cy.get("button")
-        .contain("Add to order")
-        .click()
-      cy.get("#order-message").should(
-        "contain",
-        "Another product has been added to your order"
+      cy.get("button").contain("Add to order").click()
+      cy.get("#order-message").should("contain","Another product has been added to your order"
       )
     })
 
-    cy.get("button")
-      .contains("View order")
-      .click()
+    cy.get("button").contains("View order").click()
+
     cy.get("#order-details").within(() => {
       cy.get("li").should("have.length", 2)
     })
-    cy.get("button")
-      .contains("View order")
-      .click()
+    cy.get("button").contains("View order").click()
     cy.get("#order-details").should("not.exist")
   })
 })

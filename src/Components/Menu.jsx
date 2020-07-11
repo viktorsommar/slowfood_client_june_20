@@ -140,24 +140,25 @@ class Menu extends Component {
               )}
             </div>
           );
-      });
+          if (this.state.orderDetails.hasOwnProperty("products")) {
+            orderDetailsDisplay = this.state.orderDetails.products.map((item) => {
+              return <li key={item.name}>{item.name}</li>;
+          });
+        } else {
+          orderDetailsDisplay = "Nothing to see";
+        }
 
     return (
       <>
-        {this.state.orderId !== "" && (
+        {this.state.orderDetailsDisplay.hasOwnProperty("products") && (
           <button
-            onClick={() => {
-              this.setState({ showOrder: true });
-            }}
-          >
+            onClick={() => this.setState({ showOrder: !this.state.showOrder })}
+        >
             View order
           </button>
         )}
         {this.state.showOrder && (
-          <ul id="order-details">
-            <li>item 1</li>
-            <li>Item 2</li>
-          </ul>
+          <ul id="order-details">{orderDetailsDisplay}</ul>
         )}
         <div>
           <div id="starters">
@@ -179,6 +180,6 @@ class Menu extends Component {
         </div>
       </>
     );
-  }
+  };
 }
 export default Menu;
