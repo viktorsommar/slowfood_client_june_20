@@ -65,4 +65,22 @@ describe('User can add a product to his/her order', () => {
     cy.get("button").contains("View order").click()
     cy.get("#order-details").should("not.exist")
   })
+
+  it("user can finalize the order", () => {
+    cy.get("#product-1").within(() => {
+      cy.get("button").contains("Add to order").click()
+    })
+    cy.get("#product-2").within(() => {
+      cy.get("button").contains("Add to order").click()
+    })
+    cy.get("button").contains("View order").click()
+    cy.route({
+      method: "PUT",
+      url: "http://localhost3000/api/v1/orders/1",
+      response: { message: "Your order will be ready in 30 minutes!" },
+    })
+    cy.get("#confirm-order").contains("Confirm!").click()
+    cy.get("#confirmation-message").should("contain", "Your order will be ready in 30 minutes!"
+    )
+  })
 })

@@ -10,7 +10,9 @@ for (const command of [
   "reload",
   "contains",
 ]) {
-  cypress.Commands.overwrite(command, (originalFn, ...args) => {
+  Cypress.Commands.overwrite(command, (originalFn, ...args) => {
+    const origVal = originalFn(...args)
+    
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(origVal);
