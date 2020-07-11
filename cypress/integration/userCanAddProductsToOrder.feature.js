@@ -45,14 +45,11 @@ describe('User can add a product to his/her order', () => {
       );
     });
     
-
     cy.get("#product-2").within(() => {
       cy.get("button").contains("Add to order").click();
       cy.get('#order-message').should("contain",
         "Another product has been added to your order"
       );
     });
-
   });
-
 });

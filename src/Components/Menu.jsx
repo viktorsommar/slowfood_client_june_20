@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-
 class Menu extends Component {
   state = {
     menu: [],
@@ -126,9 +125,6 @@ class Menu extends Component {
             </div>
           );
       });
-    
-    
-   
     
     return (
       <div>
