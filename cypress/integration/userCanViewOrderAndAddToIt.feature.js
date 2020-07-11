@@ -40,14 +40,14 @@ describe('User can add a product to his/her order', () => {
   it("user can add multiple products to order and view its content", () => {
     cy.get("button").contains("View order").should("not.exist")
 
-    cy.get("#product-2").within(() => {
+    cy.get("#product-1").within(() => {
       cy.get("button").contains("Add to order").click()
       cy.get("#order-message").should("contain","A product has been added to your order")
     })
 
     cy.get("button").contains("View order").should("exist")
 
-    cy.get("#product-3").within(() => {
+    cy.get("#product-2").within(() => {
       cy.get("button").contains("Add to order").click()
       cy.get("#order-message").should("contain","Another product has been added to your order"
       )
@@ -56,8 +56,12 @@ describe('User can add a product to his/her order', () => {
     cy.get("button").contains("View order").click()
 
     cy.get("#order-details").within(() => {
-      cy.get("li").should("have.length", 2)
+      cy.get("li")
+        .should("have.length", 2)
+        .first().should('have.text', 'Falafel x 1')
+        .next().should('have.text', 'Pizza x 1')
     })
+
     cy.get("button").contains("View order").click()
     cy.get("#order-details").should("not.exist")
   })

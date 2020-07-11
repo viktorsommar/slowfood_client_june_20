@@ -144,7 +144,7 @@ class Menu extends Component {
 
           if (this.state.orderDetails.hasOwnProperty("products")) {
             orderDetailsDisplay = this.state.orderDetails.products.map((item) => {
-              return <li key={item.name}>{item.name}</li>;
+              return <li key={item.name}>{`${item.name} x ${item.amount}`}</li>;
           });
         } else {
           orderDetailsDisplay = "Nothing to see";
@@ -160,9 +160,12 @@ class Menu extends Component {
             View order
           </button>
         )}
-        {this.state.showOrder && (
+        {this.state.showOrder &&
+        <>
           <ul id="order-details">{orderDetailsDisplay}</ul>
-        )}
+          <p>To pay: {this.state.orderDetails.order_total}</p>
+        </>
+        }
         <div>
           <div id="starters">
             <h3>Starters</h3>

@@ -2,7 +2,6 @@
     "message": "Another product has been added to your order",
     "order": {
       "id": 1,
-      "total": 170,
       "products": [
         {
           "amount": 1,
@@ -10,10 +9,12 @@
           "price": 100
         },
         {
-          "amount":1,
+          "amount": 1,
           "name": "Pizza",
           "price": 70
         }
-      ]
+      ],
+      "order_total": 170,
+      "finalized": false
     }
   }
