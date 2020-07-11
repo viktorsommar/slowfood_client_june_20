@@ -48,7 +48,7 @@ describe('User can add a product to his/her order', () => {
     cy.get("button").contains("View order").should("exist")
 
     cy.get("#product-3").within(() => {
-      cy.get("button").contain("Add to order").click()
+      cy.get("button").contains("Add to order").click()
       cy.get("#order-message").should("contain","Another product has been added to your order"
       )
     })

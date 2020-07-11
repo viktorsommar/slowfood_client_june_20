@@ -60,6 +60,7 @@ class Menu extends Component {
     let maincourses = [];
     let desserts = [];
     let drinks = [];
+    let orderDetailsDisplay
     this.state.menu &&
       this.state.menu.forEach((product) => {
         if (product.category === "starters")
@@ -140,6 +141,7 @@ class Menu extends Component {
               )}
             </div>
           );
+
           if (this.state.orderDetails.hasOwnProperty("products")) {
             orderDetailsDisplay = this.state.orderDetails.products.map((item) => {
               return <li key={item.name}>{item.name}</li>;
@@ -147,13 +149,14 @@ class Menu extends Component {
         } else {
           orderDetailsDisplay = "Nothing to see";
         }
+      })
 
     return (
       <>
-        {this.state.orderDetailsDisplay.hasOwnProperty("products") && (
+        {this.state.orderDetails.hasOwnProperty("products") && (
           <button
             onClick={() => this.setState({ showOrder: !this.state.showOrder })}
-        >
+          >
             View order
           </button>
         )}
@@ -180,6 +183,6 @@ class Menu extends Component {
         </div>
       </>
     );
-  };
+  }
 }
 export default Menu;
