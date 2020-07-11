@@ -8,6 +8,7 @@ class Menu extends Component {
     orderDetails: {},
     orderId: null,
     showOrder: false,
+    orderTotal: "",
   };
   componentDidMount = async () => {
     let menuData = await axios.get("/products");
@@ -24,7 +25,7 @@ class Menu extends Component {
     };
 
     let response;
-    if (this.state.orderDetails.hasOwnProperty("id")) {
+    if (this.state.orderDetails.hasOwnProperty("id") && this.state.orderDetails.finalized === false) {
       response = await axios.put(
         `/orders/${this.state.orderDetails.id}`,
         {
@@ -54,6 +55,12 @@ class Menu extends Component {
       orderDetails: response.data.order,
     });
   };
+
+  async finalizeOrder() {
+    let orderTotal = this.state.orderDetails.order_total
+    let result = await axios.put(`http://localhost:3000/api/orders/${this.state.orderDetails.id}`, { activity: 'finalize' })
+    ({ message: { id: 0, message: result.data.message}, orderTotal: orderTotal, orderDetails:{}})
+  }
 
   render() {
     let starters = [];
