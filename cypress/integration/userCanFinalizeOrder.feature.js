@@ -1,4 +1,4 @@
-describe('User can finalize their order', () => {
+describe('User can add a product to his/her order', () => {
   beforeEach(() => {
     cy.server();
     cy.route({
@@ -48,10 +48,10 @@ it("user can finalize the order", () => {
 
   cy.route({
     method: "PUT",
-    url: "http://localhost3000/api/v1/orders/1",
-    response: { message: "Your order will be ready in 30 minutes!" }
+    url: "http://localhost:3000/api/v1/orders/1",
+    response: { message: "Your order will be ready in 30 minutes!" },
   })
-  cy.get("button").contains("Confirm!").click()
+  cy.get("#confirm-order").contains("Confirm!").click()
   cy.get("#confirmation-message").should("contain", "Your order will be ready in 30 minutes!"
   )
 })

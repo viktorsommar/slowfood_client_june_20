@@ -23,13 +23,16 @@ class Menu extends Component {
       Accept: "application/json"
     }
     let orderTotal = this.state.orderDetails.order_total
-    let result = await axios.put(`http://localhost:3000/api/orders/${this.state.orderDetails.id}`, { 
+    let response = await axios.put(`/orders/${this.state.orderDetails.id}`, { 
       activity: 'finalize' 
     }, {
       headers: headers
     })
 
-    this.setState({ orderMessage: { id: 0, message: result.data.message}, orderTotal: orderTotal, orderDetails:{}, showOrder: false})
+    this.setState({ 
+      orderMessage: { id: 0, message: response.data.message }, 
+      orderDetails:{}, 
+      showOrder: false})
   }
 
   addToOrder = async (event) => {
@@ -172,7 +175,7 @@ class Menu extends Component {
     return (
       <>
       {this.state.orderMessage.id === 0 && (
-        <p className="confirmation-message">{this.state.orderMessage.message}</p>
+        <p id="confirmation-message">{this.state.orderMessage.message}</p>
       )}
         {this.state.orderDetails.hasOwnProperty("products") && (
           <button
@@ -185,7 +188,7 @@ class Menu extends Component {
         <>
           <ul id="order-details">{orderDetailsDisplay}</ul>
           <p>To pay: {this.state.orderDetails.order_total || this.state.orderTotal}{" "}kr</p>
-          <button id="confirm-order" onClick={this.finalizeOrder}>Confirm!</button>
+          <button id="confirm-order" onClick={this.finalizeOrder.bind(this)}>Confirm!</button>
         </>
         }
         <div>
