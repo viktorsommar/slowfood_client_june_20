@@ -22,7 +22,7 @@ class Menu extends Component {
       "Content-type": "application/json",
       Accept: "application/json"
     }
-    let orderTotal = this.state.orderDetails.ordet_total
+    let orderTotal = this.state.orderDetails.order_total
     let result = await axios.put(`http://localhost:3000/api/orders/${this.state.orderDetails.id}`, { 
       activity: 'finalize' 
     }, {
