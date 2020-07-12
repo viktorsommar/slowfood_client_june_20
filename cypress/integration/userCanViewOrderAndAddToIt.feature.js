@@ -76,7 +76,7 @@ describe('User can add a product to his/her order', () => {
     cy.get("button").contains("View order").click()
     cy.route({
       method: "PUT",
-      url: "http://localhost3000/api/v1/orders/1",
+      url: "http://localhost:3000/api/v1/orders/1",
       response: { message: "Your order will be ready in 30 minutes!" },
     })
     cy.get("#confirm-order").contains("Confirm!").click()
