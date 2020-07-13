@@ -2,7 +2,8 @@
   "message": "A product has been added to your order",
   "order":{
     "id": 1,
-    "total" : 70,
+    "order_total": 70,
+    "finalized": false,
     "products": [
       {
         "amount": 1,
