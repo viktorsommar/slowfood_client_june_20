@@ -23,11 +23,17 @@ class App extends Component {
 
     return (
       <>
+      <div class="ui inverted vertial center aligned segment">
+        <nav class="ui container">
         {login}
-        <h1>Slowfood</h1>
+        </nav>
+        </div>
+        <div class="ui content container">
+        <h1 class="ui inverted header">Slowfood</h1>
         <Menu 
           authenticated={this.state.authenticated}
         />
+        </div>
       </>
       );
   };

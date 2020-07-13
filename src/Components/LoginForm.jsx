@@ -1,14 +1,20 @@
 import React from 'react';
+import { Form, Button } from 'semantic-ui-react'
 
 const LoginForm = (props) => {
   return (
-    <form onSubmit={props.authenticate} id='login-form'>
-      <label>Email</label>
+    <Form onSubmit={props.authenticate} id='login-form'>
+      <Form.Field>
+      <label id="label">Email</label>
       <input name='email' type='email' id='email' />
-      <label>Password</label>
+      </Form.Field>
+
+      <Form.Field>
+      <label id="label">Password</label>
       <input name='password' type='password' id='password' />
-      <button id= 'submit'>Submit</button>
-    </form>
+      <Button id='submit'>Submit</Button>
+      </Form.Field>
+    </Form>
   )
 }
 

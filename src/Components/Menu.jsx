@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Button, Container } from 'semantic-ui-react'
 
 class Menu extends Component {
   state = {
@@ -93,10 +94,11 @@ class Menu extends Component {
               data-price={product.price}
             >
               {`${product.name} ${product.description} ${product.price}`}
+              <br></br>
               {this.props.authenticated && (
-                <button id="button" onClick={this.addToOrder}>
+                <Button id="button" onClick={this.addToOrder}>
                   Add to order
-                </button>
+                </Button>
               )}
 
               {parseInt(this.state.orderMessage.id) === product.id && (
@@ -114,9 +116,9 @@ class Menu extends Component {
             >
               {`${product.name} ${product.description} ${product.price}`}
               {this.props.authenticated && (
-                <button id="button" onClick={this.addToOrder}>
+                <Button id="button" onClick={this.addToOrder}>
                   Add to order
-                </button>
+                </Button>
               )}
               {parseInt(this.state.orderMessage.id) === product.id && (
                 <p id="order-message">{this.state.orderMessage.message}</p>
@@ -133,9 +135,9 @@ class Menu extends Component {
             >
               {`${product.name} ${product.description} ${product.price}`}
               {this.props.authenticated && (
-                <button id="button" onClick={this.addToOrder}>
+                <Button id="button" onClick={this.addToOrder}>
                   Add to order
-                </button>
+                </Button>
               )}
               {parseInt(this.state.orderMessage.id) === product.id && (
                 <p id="order-message">{this.state.orderMessage.message}</p>
@@ -153,9 +155,9 @@ class Menu extends Component {
             >
               {`${product.name} ${product.description} ${product.price}`}
               {this.props.authenticated && (
-                <button id="button" onClick={this.addToOrder}>
+                <Button id="button" onClick={this.addToOrder}>
                   Add to order
-                </button>
+                </Button>
               )}
               {parseInt(this.state.orderMessage.id) === product.id && (
                 <p id="order-message">{this.state.orderMessage.message}</p>
@@ -174,21 +176,23 @@ class Menu extends Component {
 
     return (
       <>
+      <div>
+        <Container textAlign="center">
       {this.state.orderMessage.id === 0 && (
         <p id="confirmation-message">{this.state.orderMessage.message}</p>
       )}
         {this.state.orderDetails.hasOwnProperty("products") && (
-          <button
+          <Button
             onClick={() => this.setState({ showOrder: !this.state.showOrder })}
           >
             View order
-          </button>
+          </Button>
         )}
         {this.state.showOrder &&
         <>
           <ul id="order-details">{orderDetailsDisplay}</ul>
           <p>To pay: {this.state.orderDetails.order_total || this.state.orderTotal}{" "}kr</p>
-          <button id="confirm-order" onClick={this.finalizeOrder.bind(this)}>Confirm!</button>
+          <Button id="confirm-order" onClick={this.finalizeOrder.bind(this)}>Confirm!</Button>
         </>
         }
         <div>
@@ -208,6 +212,8 @@ class Menu extends Component {
             <h3>Drinks</h3>
             {drinks}
           </div>
+        </div>
+        </Container>
         </div>
       </>
     );
